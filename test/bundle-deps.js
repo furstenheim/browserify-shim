@@ -9,6 +9,8 @@ function bundleNcheck(relPath, t) {
   browserify( { ignoreGlobals: true })
     .require(require.resolve(relPath))
     .bundle(function (err, src) {
+      console.error('callback')
+      if (err) console.error('error', err)
       if (err) { t.fail(err); return t.end(); }
 
       var ctx = { window: {}, console: console };
@@ -22,8 +24,13 @@ function bundleNcheck(relPath, t) {
     });
 }
 
+/*
 test('\nshimming deps with external shim, with depends all exposed'
     , bundleNcheck.bind(null, './deps/extshim/main'))
 
 test('\nshimming nodeps with inlined shim, with depends all exposed'
     , bundleNcheck.bind(null, './deps/inlineshim/main'))
+*/
+
+test('\nshimming nodeps with inlined shim in newer es, with depends all exposed'
+  , bundleNcheck.bind(null, './deps/es7shim/main'))

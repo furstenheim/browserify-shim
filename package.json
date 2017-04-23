@@ -4,7 +4,7 @@
   "description": "Makes CommonJS-incompatible modules browserifyable.",
   "main": "index.js",
   "scripts": {
-    "test-main": "tap test/*.js && tap test/shim/*.js",
+    "test-main": "tap test/bundle-deps.js",
     "test": "test-peer-range browserify",
     "shim-jquery": "npm install opener && cd ./examples/shim-jquery && npm install && node build.js && opener index.html",
     "shim-jquery-diag": "npm install opener && cd ./examples/shim-jquery && npm install && node build-diag.js && opener index.html",
@@ -31,8 +31,8 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "browserify": ">= 13",
-    "jsdom": "^5.4.2",
+    "browserify": ">= 14",
+    "jsdom": "9.12.0",
     "ncp": "~0.5.0",
     "proxyquire": "~0.5.1",
     "request": "~2.12.0",
@@ -43,7 +43,7 @@
   "dependencies": {
     "exposify": "~0.5.0",
     "mothership": "~0.2.0",
-    "rename-function-calls": "~0.1.0",
+    "rename-function-calls": "git+ssh://git@github.com/furstenheim/rename-function-calls.git#589bc11e9e338e425279f1c968494624812a558b",
     "resolve": "~0.6.1",
     "through": "~2.3.4"
   },
